@@ -1,21 +1,21 @@
 {
   "development": {
     "username": "postgres",
-    "password": "Hellfire9",
+    "password": "hellfire9",
     "database": "tour_db",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
-    "password": "Hellfire9",
+    "password": "hellfire9",
     "database": "tour_db",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
-    "password": "Hellfire9",
+    "password": "hellfire9",
     "database": "tour_db",
     "host": "127.0.0.1",
     "dialect": "postgres"
