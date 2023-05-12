@@ -13,21 +13,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       band_id: {
-        type: Sequelize.INTEGER,
-        references:{
-          model:{
-          tableName:'band',
-          schema:'schema'},
-      },key:'band_id'},
+        type: Sequelize.INTEGER},
       
       stage_id: {
-        type: Sequelize.INTEGER,
-        references:{
-          model:{
-            tableName:'stage',
-            schema:'schema'},
-           },  key:'stage_id'},
-          
+        type: Sequelize.INTEGER},
+      
       
       event_start_times: {
         type: Sequelize.INTEGER
