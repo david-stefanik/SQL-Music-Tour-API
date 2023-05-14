@@ -1,13 +1,13 @@
 // DEPENDENCIES
 const stages = require('express').Router()
 const db = require('../models')
-const { Band } = db 
+const { Stages } = db 
 
 // EXPORT
 
 
 //find all stages
-stages.get('/',async(req,res)=>{
+Stages.get('/',async(req,res)=>{
     try{const foundstages=await Band.findAll()
         res.status(200).json(foundstages)
 
@@ -16,7 +16,7 @@ stages.get('/',async(req,res)=>{
     }
 })
 //find a band
-stages.get('/:id',async(req,res)=>{
+Stages.get('/:id',async(req,res)=>{
     try{
         const foundBand=await Band.findOne({
             where:{band_id:req.prams.id}
@@ -27,7 +27,7 @@ stages.get('/:id',async(req,res)=>{
     }
 })
 // CREATE A BAND
-stages.post('/', async (req, res) => {
+Stages.post('/', async (req, res) => {
     
     try {
         console.log ('here')
@@ -41,7 +41,7 @@ stages.post('/', async (req, res) => {
     }
 })
 // UPDATE A BAND
-stages.put('/:id', async (req, res) => {
+Stages.put('/:id', async (req, res) => {
     try {
         const updatedstages = await Band.update(req.body, {
             where: {
@@ -56,7 +56,7 @@ stages.put('/:id', async (req, res) => {
     }
 })
 // DELETE A BAND
-stages.delete('/:id', async (req, res) => {
+Stages.delete('/:id', async (req, res) => {
     try {
         const deletedstages = await Band.destroy({
             where: {
