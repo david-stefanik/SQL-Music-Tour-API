@@ -15,15 +15,15 @@ module.exports = {
         allowNull: false,
       },
       genre: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.TEXT
       },
       available_start_time: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       end_time: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
     
