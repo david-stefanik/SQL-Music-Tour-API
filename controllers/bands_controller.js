@@ -1,36 +1,38 @@
-// DEPENDENCIES
 const bands = require('express').Router()
 const db = require('../models')
 const { Band } = db 
+const { Op } = require('sequelize')
 
-// EXPORT
+// FIND ALL BANDS
+// bands.get('/', async (req, res) => {
+//     try {
+//         const foundBands = await Band.findAll({
+//             order: [ [ 'available_start_time', 'ASC' ] ],
+//             where: {
+//                 name: { [Op.like]: `%${req.query.name ? req.query.name : ''}%` }
+//             }
+//         })
+//         res.status(200).json(foundBands)
+//     } catch (error) {
+//         res.status(500).json(error)
+//     }
+// })
 
-
-//find all bands
-bands.get('/',async(req,res)=>{
-    try{const foundBands=await Band.findAll()
-        res.status(200).json(foundBands)
-
-    }catch (error){
-        res.status(500).json(error)
-    }
-})
-//find a band
-bands.get('/:id',async(req,res)=>{
-    try{
-        const foundBand=await Band.findOne({
-            where:{band_id:req.prams.id}
+// FIND A SPECIFIC BAND
+bands.get('/:id', async (req, res) => {
+    try {
+        const foundBand = await Band.findOne({
+            where: { band_id: req.params.id }
         })
-        res.status(200).json(foundBand);
-    }catch(error){
+        res.status(200).json(foundBand)
+    } catch (error) {
         res.status(500).json(error)
     }
 })
+
 // CREATE A BAND
 bands.post('/', async (req, res) => {
-    
     try {
-        console.log ('here')
         const newBand = await Band.create(req.body)
         res.status(200).json({
             message: 'Successfully inserted a new band',
@@ -40,6 +42,7 @@ bands.post('/', async (req, res) => {
         res.status(500).json(err)
     }
 })
+
 // UPDATE A BAND
 bands.put('/:id', async (req, res) => {
     try {
@@ -55,6 +58,7 @@ bands.put('/:id', async (req, res) => {
         res.status(500).json(err)
     }
 })
+
 // DELETE A BAND
 bands.delete('/:id', async (req, res) => {
     try {
@@ -71,7 +75,5 @@ bands.delete('/:id', async (req, res) => {
     }
 })
 
-
-
-
+// EXPORT
 module.exports = bands
